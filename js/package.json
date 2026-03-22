@@ -16,7 +16,8 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "readme": "README.md",
+  "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit"

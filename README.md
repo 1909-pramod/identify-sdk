@@ -11,10 +11,10 @@ Instead of calling the identify HTTP API by hand, use these clients to log in, v
 
 ## Packages
 
-| Language | Package | Source |
-|----------|---------|--------|
-| TypeScript / JavaScript | `@identify/sdk` | [`js/`](js/) |
-| Python | `identify-sdk` | [`python/`](python/) |
+| Language | Package | Source | Docs |
+|----------|---------|--------|------|
+| TypeScript / JavaScript | `@1909-pramod/identify-sdk` | [`js/`](js/) | [js/README.md](js/README.md) |
+| Python | `identify-sdk` | [`python/`](python/) | [python/README.md](python/README.md) |
 
 ---
 

@@ -1,0 +1,12 @@
+# JS / Node
+js/dist/
+js/node_modules/
+
+# Python
+python/__pycache__/
+python/**/__pycache__/
+python/*.egg-info/
+python/dist/
+python/build/
+python/.mypy_cache/
+*.pyc

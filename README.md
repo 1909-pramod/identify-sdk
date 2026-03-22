@@ -1,5 +1,10 @@
 # identify-sdk
 
+[![CI](https://github.com/1909-pramod/identify-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/1909-pramod/identify-sdk/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/@1909-pramod/identify-sdk)](https://www.npmjs.com/package/@1909-pramod/identify-sdk)
+[![PyPI](https://img.shields.io/pypi/v/identify-sdk)](https://pypi.org/project/identify-sdk/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/1909-pramod/identify/blob/main/LICENSE)
+
 Client SDKs for [**identify**](https://github.com/1909-pramod/identify) — a self-hosted, modular authentication service.
 
 Instead of calling the identify HTTP API by hand, use these clients to log in, validate tokens, and fetch identities with a single method call.

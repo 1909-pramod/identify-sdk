@@ -44,3 +44,22 @@ jobs:
       - run: pip install -e ".[dev]" build
       - run: mypy identify_sdk
       - run: python -m build
+
+  go:
+    name: Go — vet, test & build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: go
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+
+      - run: go vet ./...
+      - run: go test -race ./...
+      - run: go build ./...

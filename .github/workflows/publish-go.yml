@@ -1,0 +1,28 @@
+name: Publish to pkg.go.dev
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tag:
+    name: Push Go module tag
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Push go/vX.Y.Z tag
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          GO_TAG="go/${VERSION}"
+          git tag "$GO_TAG"
+          git push origin "$GO_TAG"
+
+      - name: Trigger pkg.go.dev indexing
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          curl -s "https://proxy.golang.org/github.com/1909-pramod/identify-sdk/go/@v/v${VERSION}.info" || true

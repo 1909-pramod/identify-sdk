@@ -13,7 +13,6 @@ jobs:
         working-directory: js
 
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -32,6 +31,6 @@ jobs:
           VERSION=${GITHUB_REF_NAME#v}
           npm version "$VERSION" --no-git-tag-version
 
-      - run: npm publish --access public --provenance
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

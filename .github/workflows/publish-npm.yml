@@ -24,10 +24,8 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
-          cache: npm
-          cache-dependency-path: js/package-lock.json
 
-      - run: npm ci
+      - run: npm install
       - run: npm run build
 
       # Stamp the version from the GitHub Release tag (e.g. v0.2.0 → 0.2.0)

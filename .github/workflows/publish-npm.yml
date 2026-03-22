@@ -12,7 +12,6 @@ jobs:
       run:
         working-directory: js
 
-    # Needed for npm provenance (links the package to this repo on npmjs.com)
     permissions:
       id-token: write
       contents: read
@@ -28,7 +27,6 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      # Stamp the version from the GitHub Release tag (e.g. v0.2.0 → 0.2.0)
       - name: Set version from release tag
         run: |
           VERSION=${GITHUB_REF_NAME#v}

@@ -1,4 +1,5 @@
 import base64
+from typing import Any
 
 import requests
 
@@ -15,28 +16,28 @@ class IdentifyClient:
     def __init__(self, base_url: str) -> None:
         self._base_url = base_url.rstrip("/")
 
-    def _post(self, path: str, auth_header: str) -> dict:
+    def _post(self, path: str, auth_header: str) -> dict[str, Any]:
         resp = requests.post(
             f"{self._base_url}{path}",
             headers={"Authorization": auth_header},
         )
-        body = resp.json()
+        body: dict[str, Any] = resp.json()
         if not resp.ok:
             raise IdentifyError(resp.status_code, body.get("error", "request failed"))
         return body
 
-    def _get(self, path: str, token: str) -> dict:
+    def _get(self, path: str, token: str) -> dict[str, Any]:
         resp = requests.get(
             f"{self._base_url}{path}",
             headers={"Authorization": f"Bearer {token}"},
         )
-        body = resp.json()
+        body: dict[str, Any] = resp.json()
         if not resp.ok:
             raise IdentifyError(resp.status_code, body.get("error", "request failed"))
         return body
 
     @staticmethod
-    def _parse_identity(data: dict) -> Identity:
+    def _parse_identity(data: dict[str, Any]) -> Identity:
         return Identity(
             id=data["id"],
             primary_identifier=data["primary_identifier"],
@@ -49,7 +50,7 @@ class IdentifyClient:
         )
 
     @staticmethod
-    def _parse_token_response(data: dict) -> TokenResponse:
+    def _parse_token_response(data: dict[str, Any]) -> TokenResponse:
         return TokenResponse(
             token=data["token"],
             token_type=data["token_type"],
